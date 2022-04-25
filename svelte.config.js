@@ -4,16 +4,13 @@ import preprocess from 'svelte-preprocess';
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	preprocess: preprocess(),
-
 	kit: {
-		adapter: adapter({
-			fallback: 'index.html',
-		}),
+		adapter: adapter({ fallback: 'index.html' }),
 		paths: {
 			base: process.env.GH_PAGES ? '/nextTab' : '' ,
 		},
-		appDir: 'internal',
-	}
+		appDir: 'app',
+	},
 };
 
 export default config;
