@@ -1,1 +1,1 @@
-export const APP_NAME = 'nexttab';
+export const LOCAL_STORAGE_KEY = 'nexttab';

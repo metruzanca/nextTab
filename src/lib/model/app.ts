@@ -1,19 +1,15 @@
-import { writable } from "svelte/store";
+import { browser } from "$app/env";
+import { LOCAL_STORAGE_KEY } from "$lib/config";
+import { load } from "$lib/lib/localStorage";
+import type { RuntimeState, UserPreferences } from "$lib/types";
+import defaultPreferences from './_defaultPreferences.json'
 
-type AppState = {
-  edit?: boolean;
-}
+export default (load(LOCAL_STORAGE_KEY) || defaultPreferences) as UserPreferences;
 
-const app = writable<AppState>({});
-export default app;
-
-app.subscribe(value => {
-  console.log(value)
-})
-
-export function toggleEditMode() {
-  app.update(state => {
-    state.edit = !(state.edit === true);
-    return state;
-  })
+export const runtimeState: RuntimeState = {
+  meta: {
+    loading: browser,
+    // FIXME get from packagejson safely see https://kit.svelte.dev/faq#env-vars
+    version: '',
+  }
 }

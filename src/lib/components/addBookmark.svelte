@@ -1,6 +1,7 @@
 <script lang="ts">
   import { getFormFields } from "$lib/lib/form";
-  import bookmarks, { addBookmark } from "$lib/model/bookmarks";
+  import bookmarks from "$lib/model/bookmarks";
+  import Modal from "./modal.svelte";
 
   enum Fields {
     Name = "name",
@@ -14,32 +15,26 @@
 
   function handleSubmit(e: SubmitEvent) {
     const data = getFormFields<FormState>(e.target);
-    addBookmark(data);
+    bookmarks.addBookmark(data);
     if (e.target instanceof HTMLFormElement) {
       e.target?.reset();
     }
   }
-
-  let hidden = true;
 </script>
 
-<button on:click={() => (hidden = !hidden)} class="button">
-  Add bookmark
-</button>
-
-<div class={hidden ? "hidden" : ""}>
+<Modal text="Add bookmark">
   <form
     on:submit|preventDefault={handleSubmit}
     class="flex flex-col w-1/2"
     autocomplete="off"
   >
-    <label for={Fields.Name} class="text-white">Email</label>
+    <label for={Fields.Name} class="text-white">Name</label>
     <input
       name={Fields.Name}
       id={Fields.Name}
       type="text"
       value=""
-      class="m-1"
+      class="m-1 text-black"
     />
 
     <label for={Fields.Name} class="text-white">Link</label>
@@ -48,9 +43,9 @@
       id={Fields.Href}
       type="text"
       value=""
-      class="m-1"
+      class="m-1 text-black"
     />
 
-    <button class="bg-white m-1"> Add Bookmark </button>
+    <button class="m-1"> Add Bookmark </button>
   </form>
-</div>
+</Modal>

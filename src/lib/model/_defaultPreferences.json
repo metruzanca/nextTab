@@ -1,0 +1,29 @@
+{
+  "bookmarks": [
+    {
+      "id": 0,
+      "name": "Zanca.dev",
+      "href": "https://zanca.dev"
+    },
+    {
+      "id": 1,
+      "name": "Netlify",
+      "href": "https://app.netlify.com/"
+    },
+    {
+      "id": 2,
+      "name": "Mega",
+      "href": "https://mega.nz/fm/"
+    },
+    {
+      "id": 3,
+      "name": "Github",
+      "href": "https://github.com/metruzanca"
+    },
+    {
+      "id": 4,
+      "name": "Github",
+      "href": "https://github.com/metruzanca"
+    }
+  ]
+}
