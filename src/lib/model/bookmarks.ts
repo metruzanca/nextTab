@@ -3,14 +3,30 @@ import { writable } from 'svelte/store';
 import { browser } from '$app/env';
 import { APP_NAME } from '$lib/config';
 import type { Bookmark } from '$lib/types';
+import defaultAppState from '$lib/model/defaultAppState.json';
 
 
-const data = JSON.parse(
-  browser && localStorage.getItem(APP_NAME) || '[]',
-) as Bookmark[];
+const storedData = browser && localStorage.getItem(APP_NAME)
+let data: Bookmark[] = [];
+
+if (storedData) {
+  data = JSON.parse(storedData);
+}
 
 const bookmarks = writable<Bookmark[]>(data);
 export default bookmarks;
+
+if (!storedData) {
+  bookmarks.set(defaultAppState.bookmarks)
+  // TODO Figure out how to easily support both standard deploy and read-only mode.
+  // if (process.env.SELF_HOSTING) {
+  //   fetch('/config.json')
+  //   .then(data => data.json())
+  //   .then((json: AppState) => bookmarks.set(json.bookmarks))
+  //   .then(json => console.log(json))
+  //   .catch(console.warn)
+  // }
+}
 
 const shortcuts: Record<string, Bookmark> = {};
 for (const bm of data) {
