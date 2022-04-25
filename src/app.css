@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background: black;
+}
+
+@layer components {
+  button, .button {
+    @apply hover:bg-slate-700;
+    @apply active:bg-slate-800;
+    @apply bg-slate-600 text-white rounded px-2 py-1;
+  }
+}
