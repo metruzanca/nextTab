@@ -1,7 +1,7 @@
 <script lang="ts">
   import { getFormFields } from "$lib/lib/form";
   import bookmarks from "$lib/model/bookmarks";
-  import Modal from "./modal.svelte";
+  import Accordion from "./accordion.svelte";
 
   enum Fields {
     Name = "name",
@@ -22,7 +22,7 @@
   }
 </script>
 
-<Modal text="Add bookmark">
+<Accordion text="Add bookmark">
   <form
     on:submit|preventDefault={handleSubmit}
     class="flex flex-col w-1/2"
@@ -48,4 +48,4 @@
 
     <button class="m-1"> Add Bookmark </button>
   </form>
-</Modal>
+</Accordion>

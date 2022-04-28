@@ -24,6 +24,11 @@
       "id": 4,
       "name": "Github",
       "href": "https://github.com/metruzanca"
+    },
+    {
+      "id": 4,
+      "name": "startpages",
+      "href": "https://www.reddit.com/r/startpages/"
     }
   ]
 }

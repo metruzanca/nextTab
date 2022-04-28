@@ -1,3 +1,8 @@
+<!--
+
+  Was Modal, temporarily renamed accordion to not break existing functionality
+
+-->
 <script lang="ts">
   let hidden = true;
   export let text: string;

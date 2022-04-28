@@ -12,7 +12,7 @@ export type State = {
 
 export type RuntimeState = {
   meta?: {
-    loading: boolean;
+    // loading: boolean;
     version: string;
   };
   state?: State;
@@ -23,3 +23,5 @@ export type UserPreferences = {
 }
 
 export type App = UserPreferences & RuntimeState;
+
+export type Modals =| 'AddBookmark' | 'Modal';

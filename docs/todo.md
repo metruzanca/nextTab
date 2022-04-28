@@ -1,0 +1,2 @@
+- [ ] Command pallette for changing app settings
+- [ ] Command pallette for doing stuff akin to github's command pallette

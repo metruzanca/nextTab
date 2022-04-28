@@ -1,4 +1,3 @@
-import { browser } from "$app/env";
 import { LOCAL_STORAGE_KEY } from "$lib/config";
 import { load } from "$lib/lib/localStorage";
 import type { RuntimeState, UserPreferences } from "$lib/types";
@@ -8,7 +7,6 @@ export default (load(LOCAL_STORAGE_KEY) || defaultPreferences) as UserPreference
 
 export const runtimeState: RuntimeState = {
   meta: {
-    loading: browser,
     // FIXME get from packagejson safely see https://kit.svelte.dev/faq#env-vars
     version: '',
   }
