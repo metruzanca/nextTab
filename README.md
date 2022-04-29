@@ -14,3 +14,5 @@ Powered by:
 - [Tailwind](https://tailwindcss.com/)
 - [FeatherIcons](https://feathericons.com/)
 - [pnpm](https://pnpm.io/)
+
+The Changelog is following the https://keepachangelog.com/en/1.0.0/ spec.
