@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { faSearch } from "$lib/lib/fontawesome";
+  import { faSearch } from "$lib/utils/fontawesome";
 
   // TODO what is the correct type for this???
   function handleChange(e: any) {

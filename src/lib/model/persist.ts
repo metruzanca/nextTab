@@ -1,6 +1,6 @@
 import { derived, type Readable } from "svelte/store";
 import { LOCAL_STORAGE_KEY } from "$lib/config";
-import { save } from "$lib/lib/localStorage";
+import { save } from "$lib/utils/localStorage";
 import type { App } from "$lib/types";
 import bookmarks from "./bookmarks";
 

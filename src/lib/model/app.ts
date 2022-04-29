@@ -1,5 +1,5 @@
 import { LOCAL_STORAGE_KEY } from "$lib/config";
-import { load } from "$lib/lib/localStorage";
+import { load } from "$lib/utils/localStorage";
 import type { RuntimeState, UserPreferences } from "$lib/types";
 import defaultPreferences from './_defaultPreferences.json'
 

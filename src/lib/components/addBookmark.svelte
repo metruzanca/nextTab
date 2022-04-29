@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { getFormFields } from "$lib/lib/form";
+  import { getFormFields } from "$lib/utils/form";
   import bookmarks from "$lib/model/bookmarks";
   import Accordion from "./accordion.svelte";
 

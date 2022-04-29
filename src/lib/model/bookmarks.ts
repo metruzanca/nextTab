@@ -1,4 +1,4 @@
-import { Keybinds } from "$lib/lib/keybinds";
+import { Keybinds } from "$lib/utils/keybinds";
 import type { Bookmark } from "$lib/types";
 import { writable } from "svelte/store";
 import appState from "./app";
