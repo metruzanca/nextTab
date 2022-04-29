@@ -1,18 +1,15 @@
+// Form onSubmit inspired by Formik
+type Handler<FS> = (fS: FS, form: HTMLFormElement) => void;
 
-// TODO improve this
+export const formSubmit = <FS>(handler: Handler<FS>) => ({ target }: SubmitEvent) => {
+  if (target) {
+    const formData = new FormData(target as HTMLFormElement);
+    const data: any = {};
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function getFormFields<FS = any>(form: EventTarget | null) {
-  if (form) {
-    const formData = new FormData(form as HTMLFormElement);
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const data: any = {};
+    formData.forEach((value, name) => {
+      data[name] = value;
+    });
 
-      formData.forEach((value, name) => {
-        data[name] = value;
-      });
-
-    return data as FS;
+    return handler(data as FS, target as HTMLFormElement);
   }
-  return {} as FS;
-}
+};

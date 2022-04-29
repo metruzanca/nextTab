@@ -1,7 +1,6 @@
 <script lang="ts">
   import state from "$lib/model/state";
 
-  import AddBookmark from "$lib/components/addBookmark.svelte";
   import Debug from "$lib/components/debug.svelte";
 
   import modalStore from "$lib/components/modal/modalStore";
@@ -14,8 +13,6 @@
 </script>
 
 <Debug />
+<button on:click={openModal}>Add Bookmark</button>
 <button on:click={state.toggleEditing}> Toggle Edit </button>
-<AddBookmark />
 <BookmarkGrid />
-
-<button on:click={openModal}>Open Modal</button>

@@ -1,28 +1,19 @@
 <script lang="ts">
-  import { getFormFields } from "$lib/utils/form";
+  import { formSubmit } from "$lib/utils/form";
   import bookmarks from "$lib/model/bookmarks";
-  import Accordion from "./accordion.svelte";
+  import { Fields, type FormState } from ".";
+  import { browser } from "$app/env";
 
-  enum Fields {
-    Name = "name",
-    Href = "href",
-  }
+  export let onSubmit: VoidFunction;
 
-  type FormState = {
-    [Fields.Name]: string;
-    [Fields.Href]: string;
-  };
-
-  function handleSubmit(e: SubmitEvent) {
-    const data = getFormFields<FormState>(e.target);
-    bookmarks.addBookmark(data);
-    if (e.target instanceof HTMLFormElement) {
-      e.target?.reset();
-    }
-  }
+  const handleSubmit = formSubmit((state: FormState, form) => {
+    bookmarks.addBookmark(state);
+    form.reset();
+    onSubmit();
+  });
 </script>
 
-<Accordion text="Add bookmark">
+{#if browser}
   <form
     on:submit|preventDefault={handleSubmit}
     class="flex flex-col w-1/2"
@@ -48,4 +39,4 @@
 
     <button class="m-1"> Add Bookmark </button>
   </form>
-</Accordion>
+{/if}

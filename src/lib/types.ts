@@ -25,3 +25,5 @@ export type UserPreferences = {
 export type App = UserPreferences & RuntimeState;
 
 export type Modals =| 'AddBookmark' | 'Modal';
+
+export type VoidFunction = () => void;

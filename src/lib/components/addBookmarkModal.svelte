@@ -1,5 +1,5 @@
 <script lang="ts">
-  import IconSearch from "./iconSearch.svelte";
+  import AddBookmark from "./AddBookmark/AddBookmark.svelte";
   import Modal from "./modal/modal.svelte";
 
   export let onRequestClose: () => void;
@@ -9,6 +9,6 @@
   <div
     class="w-96 h-40 bg-slate-500 border-slate-50 border-2 rounded text-white"
   >
-    <IconSearch />
+    <AddBookmark onSubmit={onRequestClose} />
   </div>
 </Modal>
